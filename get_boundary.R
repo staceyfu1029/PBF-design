@@ -9,6 +9,7 @@ prbf01 <- function(n,y,phi){
 
 bound <- function(n.cohort,cohortsize,phi){
   lower <- upper <- 0
+  lower.ex <- upper.ex <- 0
   for(i in 1:n.cohort){
     t <- i*cohortsize
     x <- 0:(i*cohortsize)
@@ -27,8 +28,22 @@ bound <- function(n.cohort,cohortsize,phi){
     }
     lower[i] <- max(which(a==1))-1
     upper[i] <- min(which(a==-1))-1
+    ex <- 0
+    for(j in 1:length(x)){
+      if(y[[j]]<0.3){
+        if(x[j]/(i*cohortsize)<phi){
+          ex[j] <- 1 # exclude for being subtherapeutic
+        }else{
+          ex[j] <- -1 # exclude for being too toxic
+        }
+      }else{
+        ex[j] <- 0
+      }
+    }
+    lower.ex[i] <- max(which(ex==1))-1
+    upper.ex[i] <- min(which(ex==-1))-1
   }
-  b <- rbind(lower,upper)
+  b <- rbind(lower,upper,lower.ex,upper.ex)
 }
 
 #### Boundaries
