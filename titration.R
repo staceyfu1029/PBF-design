@@ -1,4 +1,4 @@
-## run trials with titration steps
+## run trials
 trial <- function(lower,upper,skeleton,start)
 {
   true.mtd <- which.min(abs(skeleton-phi))
@@ -46,11 +46,19 @@ trial <- function(lower,upper,skeleton,start)
       s <- s-s.tr
       
       ## Exclusion decision
+      if(dose.dlt[dose.next]<=elim.lower[dose.treated[dose.next]]){
+        dose.elim[1:dose.next] <- 0
+        if(sum(dose.elim)==0){
+          early[count] <- 1
+          mtd[count] <- dose.next
+          break
+        }
+      }
       if(dose.dlt[dose.next]>=elim.upper[dose.treated[dose.next]]){
         dose.elim[dose.next:K] <- 0
-        if(dose.elim[1]==0){
+        if(sum(dose.elim)==0){
           early[count] <- 1
-          #mtd[count] <- dose.next
+          mtd[count] <- dose.next
           break
         }
       }
