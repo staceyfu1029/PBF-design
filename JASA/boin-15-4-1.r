@@ -3,8 +3,7 @@ rm(list=ls())
 
 ## load skeleton list
 library(readxl)
-skeleton_list <- read_excel("/storage/home/cxf637/pbf/target15-4.xlsx", 
-                            col_names = FALSE)
+skeleton_list <- read_excel("target15-4.xlsx",col_names = FALSE)
 
 ## run trials
 trial <- function(lower,upper,skeleton,start)
@@ -206,4 +205,4 @@ for(i in 1:n.scene){
 end <- Sys.time()
 end-Start.time
 
-save.image("/storage/home/cxf637/pbf/at/output/boin-15-4-1.RData")
+save.image("boin-15-4-1.RData")
