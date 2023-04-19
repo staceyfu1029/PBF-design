@@ -1,0 +1,10 @@
+Reproduce workflow:
+
+Step 1: simulate toxicity profile
+  input the target toxicity phi and number of dose K in the code skeleton_list.R 
+
+Step 2: run simulations and save the output
+  run simulations for the PoP, BOIN and Keyboard design using the corresponding codes.
+  
+Step 3: generate figures and tables
+  with the output from step 2, the figures and tables can be generated using the provided codes.
