@@ -43,5 +43,5 @@ table(mtd)
 end <- Sys.time()
 end-start
 
-writexl::write_xlsx(skeleton.list,paste0("~/Desktop/pbf/skeleton_list/target",phi*100,"-",K,".xlsx"),
+writexl::write_xlsx(skeleton.list,paste0("target",phi*100,"-",K,".xlsx"),
             col_names = FALSE)
