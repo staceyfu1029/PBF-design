@@ -1,1 +1,7 @@
-The simulated scenarios of toxicity profiles are based on the pseudo uniform algorithm proposed by. 
+The simulated scenarios of toxicity profiles are based on the pseudo-uniform algorithm proposed by  Clertant & O’Quigley (2017). The algorithm is as follows. Given the target toxicity rate Φ and the number of dose levels K, the algorithm follows the following steps:
+  1. Choose one dose level K0 from the available set with equal probabilities as the Maximum Tolerated Dose (MTD).
+  2. Randomly generate $M$ from Beta(max{K-K0,0.5},1) and set an upper bound B=Φ+(1-Φ)M for the toxicity probabilities.
+  3. Continuously sample toxicity probabilities uniformly from (0, B) for each dose level until a scenario is generated where the selected dose level is the MTD.
+
+
+The .CSV files are named by the target toxicity rate and the number of doses. For example, "target15-4.xlsx" contains the simulated scenarios for Φ=0.15 and K=4.
