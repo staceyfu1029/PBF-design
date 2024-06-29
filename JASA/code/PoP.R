@@ -221,7 +221,7 @@ n.sim <- 20000
 risk.cutoff <- 0.7
 
 
-## BOIN boundary
+## PoP boundary
 prbf01 <- function(n,y,phi){
   #p <- beta(y+2,n-y+1)/beta(1+y,n-y+1)
   p <- exp(lbeta(y+2,n-y+1)-lbeta(1+y,n-y+1))
