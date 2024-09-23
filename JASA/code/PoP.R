@@ -1,4 +1,4 @@
-rm(list=ls())
+## rm(list=ls())
 ## The following code are used to run trials for random scenarios
 
 ## load skeleton list
