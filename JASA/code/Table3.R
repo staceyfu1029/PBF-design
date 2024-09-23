@@ -612,7 +612,7 @@ digits <- 1
 
 #### run multiple scenarios ----------------------------
 
-skeleton.list <- readxl::read_excel("BOIN simulated scenarios.xlsx",col_names = FALSE)
+skeleton.list <- readxl::read_excel("prespecified_scenes_boin.xlsx",col_names = FALSE)
 
 for(index in 1:dim(skeleton.list)[1]){
   skeleton <- round(as.numeric(skeleton.list[index,]),2)
